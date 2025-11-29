@@ -11,6 +11,62 @@
       @theme {
         --color-clifford: #da373d;
       }
+
+      body {
+    background: #f2f2f2;
+    }
+
+    @keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+    }
+
+    .logos {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    
+    }
+
+    .logos:before,
+    .logos:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+    }
+
+    .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+    }
+
+    .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+    }
+
+    .logos:hover .logos-slide {
+    animation-play-state: paused;
+    }
+
+    .logos-slide {
+    display: inline-block;
+    animation: 35s slide infinite linear;
+    }
+
+    .logos-slide img {
+    height: 50px;
+    margin: 0 40px;
+    }
     </style>
 
     <!-- Google Fonts: Poppins -->
@@ -25,17 +81,17 @@
 
     
 </head>
-<body class="font-[Poppins] h-[280vh] ">
+<body class="font-[Poppins] h-[210vh] ">
     <nav class="w-full h-[10vh]  bg-white px-20 sticky top-0 z-10 ">
         <!--nav- top -->
         <div class="w-full h-full flex justify-evenly ">
-            <div class="h-full w-[22%]  flex items-center px-6 text-4xl font-bold"><a href="/index.html">Logo</a></div>
+            <div class="h-full w-[22%]  flex items-center px-6 text-4xl font-bold bg-gradient-to-r from-black to-blue-400 text-transparent bg-clip-text"><a href="/index.html">Phone Store</a></div>
             <div class="h-full w-[50%]  flex justify-center items-center">
 
                 <div class="nav-links bg-white  w-full h-[35%]  nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto flex items-center px-5 justify-center">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 ">
-                        <li class="text-black hover:text-blue-600 transition-all ease-in-out duration-200 md:text-[21px] text-3xl font-semibold"><a href="/index.html">Home</a></li>
-                        <li class="text-black hover:text-blue-600 transition-all ease-in-out duration-200 md:text-[21px] text-3xl">
+                        <li class="text-black hover:text-amber-300 transition-all ease-in-out duration-200 md:text-[21px] text-3xl font-semibold"><a href="/index.html">Home</a></li>
+                        <li class="text-black hover:text-amber-300 transition-all ease-in-out duration-200 md:text-[21px] text-3xl">
                             <div class="relative" id="dropdownButton">
                                 <div onclick="toggleDropdow()" class=" rounded cursor-pointer flex justify-between bg-white">
                                     <span style="padding-right: 10px; font-weight: 600;">Model</span>
@@ -49,18 +105,33 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="text-black hover:text-blue-600 transition-all ease-in-out duration-200 md:text-[21px] text-3xl font-semibold"><a href="./about.html">About</a></li>
-                        <li class="text-black hover:text-blue-600 transition-all ease-in-out duration-200 md:text-[21px] text-3xl font-semibold"><a href="./service.html">Contact us</a></li>
+                        <li class="text-black hover:text-amber-300 transition-all ease-in-out duration-200 md:text-[21px] text-3xl font-semibold"><a href="./about.html">About</a></li>
+                        <li class="text-black hover:text-amber-300 transition-all ease-in-out duration-200 md:text-[21px] text-3xl font-semibold"><a href="./service.html">Contact us</a></li>
                     </ul>  
                 </div>
                 
             </div>
             <div class="h-full w-[22%] flex items-center justify-end">
                 <div class="flex md:flex-row md:items-center  gap-8 ">
-                    <a href="#" class="text-black hover:text-amber-300 transition-all ease-in-out duration-200 3xl:hidden flex items-center">
-                        <i class="fa-sharp-duotone fa-solid fa-cart-shopping text-xl"></i>
-                        <span class="hidden sm:inline lg:text-[20px] ml-2">CART</span>
-                    </a>
+                     <div class="relative" id="dropCart">
+                                <div onclick="toggleDropdown()" class=" rounded cursor-pointer flex justify-between bg-white">
+                                    <a href="#" class="text-black hover:text-amber-300 transition-all ease-in-out duration-200 3xl:hidden flex items-center">
+                                        <i class="fa-sharp-duotone fa-solid fa-cart-shopping text-xl"></i>
+                                        <span class="hidden sm:inline lg:text-[20px] ml-2">CART</span>
+                                    </a>
+                                </div>
+                                <div id="drop-Cart" class="z-10 p-3 rounded border-2 border-gray-300 bg-white right-0 absolute hidden top-[50px] w-[400px] h-[500px] flex flex-col items-center">
+                                    <div class="w-full h-[10%] bg-amber-300 flex items-center rounded-md">
+                                        <p class="text-xl p-5 text-white">My Cart</p>
+                                    </div>
+                                    <div id="cartItem" class="m-5">Your cart is empty</div>
+                                    <hr class="w-full">
+                                    <div class="flex gap-70  mt-2">
+                                        <h3 class="font-semibold">Total</h3>
+                                        <h2 class="font-semibold text-red-600" id="total">$ 0.00</h2>
+                                    </div>                          
+                                </div>
+                    </div>
                      <div class=" flex justify-center items-center">
                          <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
                      </div>
@@ -73,38 +144,53 @@
         
     </nav>
 
-    <main class="w-full h-[220vh] px-2 sm:px-4 md:px-30 -z-10 flex flex-col gap-9 ">
-        <div class="w-full h-[110vh] ">
+    <main class="w-full md:h-[180vh] 2xl:h-[160vh] px-2 sm:px-4 md:px-30 -z-10 flex flex-col gap-9 ">
+        <div class="w-full md:h-[130vh] 2xl:h-[90vh]  ">
             <h2 class="text-5xl font-semibold mt-15">Contact us</h2>
-            <p class="mt-5 text-gray-400">Please choose the following methods to contact us：</p>
+            <p class="mt-5 text-gray-600">Please choose the following methods to contact us：</p>
             <h3 class="text-2xl mt-5">Email:</h3>
-            <p class="mt-5 text-gray-400">If you have any questions, please feel free to contact us at <span class="font-semibold text-gray-700">support@giztop.com</span>, we will reply to emails within 24 hours because of the time difference.</p>
+            <p class="mt-5 text-gray-600">If you have any questions, please feel free to contact us at <span class="font-semibold text-gray-700">support@giztop.com</span>, we will reply to emails within 24 hours because of the time difference.</p>
             <h3 class="text-2xl mt-5">Live Chat:</h3>
-            <p class="mt-5 text-gray-400">Please click the icon at the bottom-right corner to chat with the customer service team:</p>
+            <p class="mt-5 text-gray-600">Please click the icon at the bottom-right corner to chat with the customer service team:</p>
             <div>
-                <li class="text-gray-400 mx-15">Online: <span class="font-semibold text-gray-700">Have a talk</span> with our customer service team directly, any questions will be answered instantly.</li>
-                <li class="text-gray-400 mx-15">Offline: <span class="font-semibold text-gray-700">Leave a message with your email address</span> when we are offline, check our response in your mailbox a few hours later.</li>
+                <li class="text-gray-600 mx-15">Online: <span class="font-semibold text-gray-700">Have a talk</span> with our customer service team directly, any questions will be answered instantly.</li>
+                <li class="text-gray-600 mx-15">Offline: <span class="font-semibold text-gray-700">Leave a message with your email address</span> when we are offline, check our response in your mailbox a few hours later.</li>
             </div>
 
             <p class="mt-5 text-gray-500 font-semibold">Online Time (Monday - Friday):</p>
-            <p class="mt-5 text-gray-400">9:30AM - 1:30AM (Beijing / Hong Kong Time, GMT+8)</p>
-            <p class="mt-5 text-gray-400">3:30AM - 7:30PM (Europe / Paris Time, GMT +2)</p>
-            <p class="mt-5 text-gray-400">6:30PM - 10:30AM (North America Time, PDT)</p>
+            <p class="mt-5 text-gray-600">9:30AM - 1:30AM (Beijing / Hong Kong Time, GMT+8)</p>
+            <p class="mt-5 text-gray-600">3:30AM - 7:30PM (Europe / Paris Time, GMT +2)</p>
+            <p class="mt-5 text-gray-600">6:30PM - 10:30AM (North America Time, PDT)</p>
 
             <p class="mt-5 text-gray-600">Tips:</p>
             <div>
-                <li class="text-gray-400 mx-15">Sometimes, our reply email may be in <span class="font-semibold text-gray-700">your spam/promotional mailbox,</span> please check it and add support@giztop.com to the white list.</li>
-                <li class="text-gray-400 mx-15"><span class="font-semibold text-gray-700">The Live Chat Team doesn't work on the weekend,</span> please try to contact us by email, so that you get a response early.</li>
-                <li class="text-gray-400 mx-15"><span class="font-semibold text-gray-700">The shipping Team doesn't work on the weekend,</span> your order will be shipped out on Monday if you place an order on weekend.</li>
+                <li class="text-gray-600 mx-15">Sometimes, our reply email may be in <span class="font-semibold text-gray-700">your spam/promotional mailbox,</span> please check it and add support@giztop.com to the white list.</li>
+                <li class="text-gray-600 mx-15"><span class="font-semibold text-gray-700">The Live Chat Team doesn't work on the weekend,</span> please try to contact us by email, so that you get a response early.</li>
+                <li class="text-gray-600 mx-15"><span class="font-semibold text-gray-700">The shipping Team doesn't work on the weekend,</span> your order will be shipped out on Monday if you place an order on weekend.</li>
             </div>
 
-            <p class="mt-5 text-gray-400">Because we provide a global shipping service, customers in different regions receive a slightly different response time to the email. Please be patient. We will process your order as soon as possible during working hours. Thank you!</p>
+            <p class="mt-5 text-gray-600">Because we provide a global shipping service, customers in different regions receive a slightly different response time to the email. Please be patient. We will process your order as soon as possible during working hours. Thank you!</p>
 
-
-        
         </div>
         
-            
+        <div class="w-full 2xl:h-[50vh] md:h-[70vh] flex flex-col gap-10">
+            <div class="w-full h-[25%] text-center flex flex-col gap-3">
+                <p class="text-2xl">In cooperation with </p>
+                <h2 class="text-5xl font-semibold">Installment Service</h2>
+                <p class="text-sm text-gray-600">We offers a range of installment services for our customers — brought to you in cooperation with our trusted financial partners.</p>
+            </div>
+
+            <div class="logos"  >
+                <div class="logos-slide"style="display: flex;">
+                    <img src="https://cdn.prod.website-files.com/5ee6fcacadd438672e2e72b6/6344e1f77a04132be596e51e_photo_2022-10-10_16-10-41.jpg" />
+                    <img src="https://www.ababank.com/typo3conf/ext/boxmodel/Resources/Private/Templates/ABA/images/aba-web-top-logo.png" />
+                    <img src="https://ftb.com.kh/uploads/2019/08/ftb-logo-en.png" />
+                    <img src="https://www.wooribank.com.kh/wp-content/uploads/2022/07/cropped-cropped-Header-Logo-1.png">
+                    <img src="https://imgs.search.brave.com/z5uMvoesoNNcyIUq-DHl-om39nNfNNOCBVMi2LzZ9Wc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5saWNkbi5jb20v/ZG1zL2ltYWdlL0M1/NjFCQVFFZ1NYa09R/dU5UN1EvY29tcGFu/eS1iYWNrZ3JvdW5k/XzEwMDAwLzAvMTYw/OTcyOTc3MTI1NS9h/Y2xlZGFiYW5rcGxj/X2NvdmVyP2U9MjE0/NzQ4MzY0NyZ2PWJl/dGEmdD03aGozSDFN/Z3BHQlFPY2J2b1k1/YWN1T2hYUUZXOVV4/a0FIaFAxTlFhMlZB">
+                    <img src="https://ibccambodia.com/wp-content/uploads/2019/09/New-WingBank-Logo_Green-2025.png">
+                </div>
+            </div>
+        </div>  
 
     </main>
 
@@ -130,21 +216,24 @@
             </div>
             <div class="w-[25%] h-full px-10 py-10 text-white">
                 <h3 class="text-xl font-semibold mb-5">All Product</h3>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Apple</a></p>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Samsung</a></p>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Oppo</a></p>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Vivo</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./apple.html">Apple</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./samsung.html">Samsung</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./oppo.html">Oppo</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./vivo.html">Vivo</a></p>
             </div>
          </div>
          <hr style="width: 100%; color: gray;">
          <div class="w-full h-[14%]  flex items-center px-20 text-gray-100">
-            <p>©2026 , Ltd. All Rights Reserved | <a href="" class="text-gray-400">Privacy Policy</a></p>
+            <p>©2026 , Ltd. All Rights Reserved | <a href="" class="text-gray-600">Privacy Policy</a></p>
          </div>
     </footer>
    
 </body>
 
     <script src="./main.js"></script>
-    
+    <script>
+    var copy = document.querySelector(".logos-slide").cloneNode(true);
+      document.querySelector(".logos").appendChild(copy);
+    </script>
 
 </html>

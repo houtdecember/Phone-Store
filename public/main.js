@@ -4,6 +4,7 @@ function onToggleMenu(e) {
   e.name = e.name === "menu" ? "close" : "menu";
   navLinks.classList.toggle("top-[7%]");
 }
+
 // dorpdown
 function toggleDropdow() {
   let dropdown = document.querySelector("#dropdownButton #dropdown");
@@ -11,6 +12,16 @@ function toggleDropdow() {
 
 }
 
+
+// dorpdown
+function toggleDropdown() {
+  let drop_Cart = document.querySelector("#dropCart #drop-Cart");
+  drop_Cart.classList.toggle("hidden");
+
+}
+
+
+// add to cart
 
 
 
@@ -110,21 +121,25 @@ const items1 = {
     "https://www.ione.com.kh/wp-content/uploads/2025/09/iphone-17-pro-4-cambodia.png",
     "iPhone 17 Pro",
     "From $1559 ",
+    "./public/apple.html"
   ],
   item2: [
     "https://www.giztop.com/media/catalog/product/cache/97cc1143d2e20f2b0c8ea91aaa12053c/o/p/oppo_find_x9_pro_1.jpg",
     "OPPO Find X9 Pro",
     "From $849 ",
+    "./public/oppo.html"
   ],
   item3: [
     "https://images.samsung.com/is/image/samsung/p6pim/us/f2507/gallery/us-galaxy-z-fold7-f966-sm-f966ulgaxaa-547827985?$PD_GALLERY_PNG$?$product-card-small-jpg$",
     "Galaxy Z Fold7",
     "From $1599 ",
+    "./public/samsung.html"
   ],
   item4: [
     "https://www.giztop.com/media/catalog/product/cache/97cc1143d2e20f2b0c8ea91aaa12053c/v/i/vivo_x300_pro-.jpg",
     "Vivo X300 Pro",
     "From $1299 ",
+    "./public/vivo.html"
   ],
 };
 
@@ -142,13 +157,13 @@ for (let i = 0; i < 4; i++) {
                     </div>
                     <!-- bottom -->
                      <div class="w-full h-[40%] flex flex-col items-center">
-                         <div class="w-[90%] h-[30%]">${
+                         <div class="w-[90%] h-[30%]  2xl:text-2xl">${
                            items1[keys[i]][1]
                          }</div>
-                         <div class="w-[90%] h-[30%] text-gray-500  ">${
+                         <div class="w-[90%] h-[30%] text-gray-500 2xl:text-xl ">${
                            items1[keys[i]][2]
                          } </div>
-                        <button class="w-full h-[40%] bg-gray-100 cursor-pointer  flex justify-end items-center px-3 bg-gradient-to-r from-black to-blue-400 text-transparent bg-clip-text">More Details ></button>
+                        <button class="w-full h-[40%] bg-gray-100 cursor-pointer  flex justify-end items-center px-3 bg-gradient-to-r from-black to-blue-400 text-transparent bg-clip-text"><a href="${items1[keys[i]][3]}">More Details ></a></button>
 
                     </div>
                 </div>`;
