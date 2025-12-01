@@ -30,7 +30,7 @@
     </style>
     
 </head>
-<body class="font-[Poppins] h-[280vh] ">
+<body class="font-[Poppins] h-[271vh] ">
     <nav class="w-full h-[10vh]  bg-white px-20 sticky top-0 z-10 ">
         <!--nav- top -->
         <div class="w-full h-full flex justify-evenly ">
@@ -93,8 +93,8 @@
         
     </nav>
 
-    <main class="w-full h-[220vh] px-2 sm:px-4 md:px-30 -z-10 flex flex-col gap-9">
-        <div class="w-full h-[10vh] bg-gray-200">
+    <main class="w-full h-[211vh] px-2 sm:px-4 md:px-30 -z-10 flex flex-col gap-9">
+        <div class="w-full h-[1vh]">
             <!-- reach sort -->
         </div>
         <div id="card-oppo1" class="w-full h-[60vh] flex gap-9">
@@ -140,20 +140,20 @@
         <!-- top -->
          <div class="w-full h-[85%]  flex justify-between">
             <div class="w-[25%] h-full px-20 py-10 text-white">
-                <h1 class="text-4xl mb-5">Name Store</h1>
+                <h1 class="text-3xl mb-5 font-bold bg-gradient-to-r from-white to-blue-600 text-transparent bg-clip-text">Phone Store</h1>
                 <p class="hover:text-amber-100"><a href="">manlyhout@gmail.com</a></p>
             </div>
             <div class="w-[25%] h-full px-10 py-10 text-white">
                 <h3 class="text-xl font-semibold mb-5">Customer Support</h3>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Easy Payment</a></p>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Warranty Policy</a></p>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Shipping Policy</a></p>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href="">Privacy Policy</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./service.html">Easy Payment</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./service.html">Warranty Policy</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./service.html">Shipping Policy</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="./about.html">Privacy Policy</a></p>
             </div>
             <div class="w-[25%] h-full px-10 py-10 text-white">
                 <h3 class="text-xl font-semibold mb-5">Social Media</h3>
                 <p class="mb-2 text-sl hover:text-amber-300"><a href="https://web.facebook.com/ly.hout.10004/"><i  class="fa-brands fa-facebook"></i>  Facebook</a></p>
-                <p class="mb-2 text-sl hover:text-amber-300"><a href=""><i  class="fa-brands fa-tiktok"></i>  TikTok</a></p>
+                <p class="mb-2 text-sl hover:text-amber-300"><a href="https://vt.tiktok.com/ZSfgFTaVE/"><i  class="fa-brands fa-tiktok"></i>  TikTok</a></p>
                 <p class="mb-2 text-sl hover:text-amber-300"><a href=""><i  class="fa-brands fa-instagram"></i>  Instagram</a></p>
             </div>
             <div class="w-[25%] h-full px-10 py-10 text-white">
@@ -315,7 +315,7 @@
                   <button onclick="addToCart({id: '${id}', name: '${name}', price: '${price}'})" class="w-[47%] bg-black cursor-pointer text-white rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-white hover:text-black">
                     <i class="fa-sharp-duotone fa-solid fa-cart-shopping"></i> Add Cart
                   </button>
-                  <button class="w-[47%] bg-white text-black cursor-pointer rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-black hover:text-white">
+                  <button onclick="openBuyModal({id: '${id}', name: '${name}', price: '${price}', img: '${img}'})" class="w-[47%] bg-white cursor-pointer text-black rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-black hover:text-white">
                     <i class="fa-solid fa-bag-shopping"></i> Buy
                   </button>
                 </div>
@@ -381,7 +381,7 @@
                   <button onclick="addToCart({id: '${id}', name: '${name}', price: '${price}'})" class="w-[47%] bg-black cursor-pointer text-white rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-white hover:text-black">
                     <i class="fa-sharp-duotone fa-solid fa-cart-shopping"></i> Add Cart
                   </button>
-                  <button class="w-[47%] bg-white text-black cursor-pointer rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-black hover:text-white">
+                  <button onclick="openBuyModal({id: '${id}', name: '${name}', price: '${price}', img: '${img}'})" class="w-[47%] bg-white cursor-pointer text-black rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-black hover:text-white">
                     <i class="fa-solid fa-bag-shopping"></i> Buy
                   </button>
                 </div>
@@ -445,13 +445,165 @@
                     <button onclick="addToCart({id: '${id}', name: '${name}', price: '${price}'})" class="w-[47%] bg-black cursor-pointer text-white rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-white hover:text-black">
                         <i class="fa-sharp-duotone fa-solid fa-cart-shopping"></i> Add Cart
                     </button>
-                    <button class="w-[47%] bg-white text-black cursor-pointer rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-black hover:text-white">
+                    <button onclick="openBuyModal({id: '${id}', name: '${name}', price: '${price}', img: '${img}'})" class="w-[47%] bg-white cursor-pointer text-black rounded-md text-sm hover:scale-105 transition-all duration-500 ease-in-out hover:bg-black hover:text-white">
                         <i class="fa-solid fa-bag-shopping"></i> Buy
                     </button>
                     </div>
                 </div>
                 </div>`;
         }
+
+
+
+
+        // ...existing code...
+
+// Modal & Payment Concept
+function openBuyModal(product) {
+  const modal = document.createElement("div");
+  modal.id = "buyModal";
+  modal.className =
+    "fixed inset-0 bg-black/50 flex items-center justify-center z-[9999] p-4";
+  modal.innerHTML = `
+    <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-black to-blue-600 p-6 text-white flex justify-between items-center sticky top-0">
+        <h2 class="text-2xl font-bold">Order Summary</h2>
+        <button onclick="closeModal()" class="text-2xl hover:scale-110">×</button>
+      </div>
+
+      <!-- Product Info -->
+      <div class="p-6 grid grid-cols-2 gap-6">
+        <!-- Product Image -->
+        <div class="flex flex-col items-center justify-center">
+          <img src="${product.img || 'https://via.placeholder.com/300'}" alt="${product.name}" class="w-full h-64 object-cover rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold mt-4">${product.name}</h3>
+          <p class="text-2xl text-blue-600 font-bold mt-2">$${parseFloat(product.price).toFixed(2)}</p>
+        </div>
+
+        <!-- Delivery Form -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold mb-4">Delivery Information</h3>
+          
+          <div>
+            <label class="block text-sm font-medium mb-1">Full Name</label>
+            <input type="text" id="customerName" placeholder="Enter your name" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Email</label>
+            <input type="email" id="customerEmail" placeholder="Enter your email" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Phone Number</label>
+            <input type="tel" id="customerPhone" placeholder="Enter your phone" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Delivery Address</label>
+            <textarea id="customerAddress" placeholder="Enter your address" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" rows="3"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Quantity</label>
+            <input type="number" id="quantity" min="1" value="1" class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Total -->
+      <div class="bg-gray-100 p-6 border-t-2">
+        <div class="flex justify-between text-lg font-bold mb-4">
+          <span>Total Amount:</span>
+          <span class="text-blue-600">$<span id="modalTotal">${parseFloat(product.price).toFixed(2)}</span></span>
+        </div>
+      </div>
+
+      <!-- QR Code Section -->
+      <div class="p-6 border-t-2 flex flex-col items-center">
+        <h3 class="text-lg font-semibold mb-4">Scan to Pay</h3>
+        <div id="qrCodeContainer" class="p-4 bg-gray-50 rounded-lg border-2 border-gray-300">
+          <!-- QR code will be generated here -->
+        </div>
+        <p class="text-sm text-gray-500 mt-4 text-center">Scan this QR code with your phone to complete payment</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="p-6 flex gap-4 border-t-2">
+        <button onclick="closeModal()" class="flex-1 bg-gray-400 text-white py-3 rounded-lg font-semibold hover:bg-gray-500">Cancel</button>
+        <button onclick="processOrder()" class="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">Confirm Order</button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+  generateQRCode(product);
+  setupModalListeners(product);
+}
+
+function closeModal() {
+  const modal = document.getElementById("buyModal");
+  if (modal) modal.remove();
+}
+
+function generateQRCode(product) {
+  const total = parseFloat(product.price) * (document.getElementById("quantity")?.value || 1);
+  const qrData = `Phone Store Payment\nProduct: ${product.name}\nAmount: $${total.toFixed(2)}\nDate: ${new Date().toLocaleDateString()}`;
+
+  // Using a simple QR code library (add to HTML head if not present)
+  const qrContainer = document.getElementById("qrCodeContainer");
+  if (qrContainer) {
+    qrContainer.innerHTML = `
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrData)}" alt="Payment QR Code" class="rounded">
+    `;
+  }
+}
+
+function setupModalListeners(product) {
+  const quantityInput = document.getElementById("quantity");
+  if (quantityInput) {
+    quantityInput.addEventListener("change", () => {
+      const qty = parseInt(quantityInput.value) || 1;
+      const total = parseFloat(product.price) * qty;
+      document.getElementById("modalTotal").textContent = total.toFixed(2);
+      generateQRCode(product);
+    });
+  }
+}
+
+function processOrder() {
+  const name = document.getElementById("customerName")?.value;
+  const email = document.getElementById("customerEmail")?.value;
+  const phone = document.getElementById("customerPhone")?.value;
+  const address = document.getElementById("customerAddress")?.value;
+  const quantity = document.getElementById("quantity")?.value || 1;
+
+  if (!name || !email || !phone || !address) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  const order = {
+    name,
+    email,
+    phone,
+    address,
+    quantity,
+    timestamp: new Date().toISOString(),
+  };
+
+  console.log("Order placed:", order);
+  alert(`✅ Order confirmed!\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nQuantity: ${quantity}\n\nPlease scan the QR code to complete payment.`);
+  closeModal();
+}
+
+// Make function accessible globally
+window.openBuyModal = openBuyModal;
+window.closeModal = closeModal;
+window.processOrder = processOrder;
+
+// ...existing code...
     </script>
 
 </html>
